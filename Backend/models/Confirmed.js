@@ -4,10 +4,14 @@ const Schema = mongoose.Schema
 
 //Creating our event Schema
 const ConfirmedModel = new Schema ({
-    Confirmation:{type:String, require: true},
+    Confirmation:{type:Boolean, require: true},
 
     //Associate the user model
     User: [{type: Schema.Types.ObjectId ,
+        ref: 'User'
+    }],
+       //Associate the user model
+    Host: [{type: Schema.Types.ObjectId ,
         ref: 'User'
     }],
     //Associate the Event model

@@ -21,7 +21,8 @@ router.delete('/users/:userId', usersController.user_delete)
 //Creating a new event
 router.post('/users/events',isLoggedIn, usersController.event_create_post)
 
-//confirming for an event
-router.post('/users/:userId/confirmed', usersController.confirmed_create_post)
+
+//username for Creating an event
+router.post('/users/events/create', isLoggedIn, usersController.event_create_username_post)
 
 module.exports = router

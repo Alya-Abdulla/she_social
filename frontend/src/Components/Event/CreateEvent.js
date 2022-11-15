@@ -34,9 +34,10 @@ function CreateEvent() {
     })
   }
   const handleSubmit = (e) => {
+    e.preventDefault()
     // axios.post(Create a tweet)
     const token = localStorage.getItem('token')
-    axios.post('http://localhost:4000/users/events', formData, 
+    axios.post('http://localhost:4000/users/events/create', formData, 
     {
       headers: {Authorization: token}
     })

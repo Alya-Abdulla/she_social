@@ -6,8 +6,8 @@ module.exports = (req, res, next) => {
     // console.log(token);
 
     let token = ""
-    let authorizationToken = req.header("Authorization");
-    console.log(authorizationToken);
+    // let authorizationToken = req.header("authorization");
+    let authorizationToken = req.headers.authorization;
 
     if(!authorizationToken){
         return res.status(401).json({ message : "Ahaaan!!! You are not allowed to view this as this is a protected route."})

@@ -23,10 +23,11 @@ function EventList() {
    {eventsList.length ? eventsList.map(event => 
           <div className='event-container' key={event._id}>
             <h2>{event.EventName}</h2>
-            <br></br><p>Time: {event.Time}</p>
-            <br></br><p>Date: {event.Date}</p>
-            <br></br><p>Location: {event.Locate}</p>
-            <br></br><p>{event.Description}</p>
+            <br></br><p>Time : {event.Time}</p>
+            <br></br><p>Date : {event.Date}</p>
+            <br></br><p>Location : {event.Locate}</p>
+            <br></br><p>Category : {event.Category}</p>
+            <br></br><p>Description : {event.Description}</p>
 
                 {/* <button>View</button> */}
             <NavLink to={`/events/${event._id}`} >View</NavLink>

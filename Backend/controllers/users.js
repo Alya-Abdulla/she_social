@@ -126,22 +126,24 @@ async function event_create_post(req,res) {
     res.json(user)   
 }
 
-async function confirmed_create_post(req,res) {
+async function event_create_username_post(req,res) {
     // Find the user that will create the event
-    // console.log('user',req.user);
-    let user = await User.findById(eq.params.userId)
+    console.log('user',req.user);
+    let user = await User.findById(req.user.id)
     //logic for creating the event
-    let newEvent = await Event.create(req.body)
+    let newEvent = await Event.create(
+        {...req.body,
+        User: user.id
+    })
     // Push the new event ID into the user's 'Event' property
-    console.log(user)
-    user.Event.push(newEvent._id)
+    // newEvent.User=user._id
     // Save our changes to the user
-    await user.save()
+    await newEvent.save()
     // Respond with the user data
     // Populate the Event data
-    await user.populate('Event')
-    console.log(Event)
-    res.json(user)   
+    await newEvent.populate('User')
+    console.log(newEvent)
+    res.json(newEvent)   
 }
 
 module.exports = {
@@ -151,5 +153,5 @@ module.exports = {
     user_update_put,
     user_delete,
     event_create_post,
-    confirmed_create_post,
+    event_create_username_post
 }

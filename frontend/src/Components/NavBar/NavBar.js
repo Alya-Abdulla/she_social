@@ -9,7 +9,7 @@ function NavBar(props) {
         <div>
           <ul className="navbar-ul">
           <li><Link to='/home'>Home</Link></li>
-          <li><Link to='/profile'>Profile</Link></li>
+          <li><Link to={`/profile/${props.user.user.id}`}>Profile</Link></li>
 
           <li><Link to='/events'>Events</Link></li>
           <li><Link to='/CreateEvent'>Create Event</Link></li>
